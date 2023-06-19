@@ -52,7 +52,6 @@ class DishesFragment : Fragment() {
     private var linearLayout: LinearLayout? = null
     private var dishesRV: RecyclerView? = null
     private var handler: Handler? = null
-    private var stopHandler: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -87,7 +86,7 @@ class DishesFragment : Fragment() {
                 Thread {
                     if (!getDishes()) {
                         mainActivity!!.runOnUiThread { Toast.makeText(mainActivity, "Проверьте подключение к интернету", Toast.LENGTH_SHORT).show() }
-                        if (!stopHandler) handler!!.postDelayed(this, 4000)
+                        handler?.postDelayed(this, 4000)
                     }
                 }.start()
             }
@@ -176,6 +175,7 @@ class DishesFragment : Fragment() {
     override fun onDestroy() {
         mainActivity!!.dishesTopBar!!.visibility = View.INVISIBLE
         (parentFragment as HomeFragment).childShowing = false
+        handler = null
         super.onDestroy()
     }
 }
