@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.cart.CartFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ваша корзина пуста"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/sf_pro_display"
+        app:layout_constraintTop_toTopOf="@id/orders_RV"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_marginTop="5dp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/orders_RV"
+        android:translationZ="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/pay_button"
+        app:layout_constraintVertical_bias="0"
+        android:background="@color/white"
+        android:outlineProvider="none"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pay_button"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:0.175"
+        android:backgroundTint="@color/theme_blue"
+        android:fontFamily="@font/sf_pro_display"
+        android:padding="0dp"
+        android:layout_marginBottom="10dp"
+        android:text="Оплатить 2 004 ₽"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:cornerRadius="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
